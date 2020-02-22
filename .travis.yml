@@ -2,6 +2,6 @@ language: minimal
 
 services: docker
 
-script: docker run -e BUILD_ID=564711868 repairnator/pipeline
+script: docker run -e BUILD_ID=$TRAVIS_BRANCH repairnator/pipeline
 
 
