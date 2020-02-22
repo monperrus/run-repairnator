@@ -2,6 +2,10 @@ language: minimal
 
 services: docker
 
-script: docker run -e BUILD_ID=$TRAVIS_BRANCH repairnator/pipeline
+script:
+- docker run -e BUILD_ID=$TRAVIS_BRANCH repairnator/pipeline
+- docker cp `docker ps -a --format "{{.Names}}" | head -1`:/root/$TRAVIS_BRANCH result
+
+cache: result
 
 
