@@ -3,6 +3,7 @@ language: minimal
 services: docker
 
 script:
+- rm -rf result
 - docker run -e BUILD_ID=$TRAVIS_BRANCH repairnator/pipeline
 - docker cp `docker ps -a --format "{{.Names}}" | head -1`:/root/$TRAVIS_BRANCH result
 - cat result/*.json
